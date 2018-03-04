@@ -21,22 +21,57 @@ class TestCalculator {
 	}
 	
 	@Test
-	void testFewNumberOfArgs() {
-		int argsNb = c.numberOfArgs(validTestArgs);
+	void testNumberOfArgs() {
+		int argsNb = c.validateNumberOfArgs(validTestArgs);
 		Assertions.assertEquals(7, argsNb);
-		
-		invalidTestArgs = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "380"};
-		argsNb = c.numberOfArgs(invalidTestArgs);
-		Assertions.assertFalse(argsNb < 7, "Too few Arguments!");
 	}
 	
 	@Test
-	void testManyNumberOfArgs() {
-		int argsNb = c.numberOfArgs(validTestArgs);
-		Assertions.assertEquals(7, argsNb);
-		
-		invalidTestArgs = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "380", "xpress", "oneTooMany"};
-		argsNb = c.numberOfArgs(invalidTestArgs);
-		Assertions.assertFalse(argsNb > 7, "Too many Arguments!");
+	void testIntegerParameters() {
+		boolean ct = c.validateIntegerParameters(validTestArgs);
+		Assertions.assertTrue(ct);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
