@@ -10,5 +10,7 @@ public class Calculator {
 		// TODO Auto-generated method stub
 		return args.length;
 	}
+	
+	public boolean 
 
 }
