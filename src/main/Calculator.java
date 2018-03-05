@@ -1,5 +1,8 @@
 package main;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 public class Calculator {
 	
 	public static void main(String args[]) {
@@ -14,13 +17,38 @@ public class Calculator {
 		if (width <= 0 || width > 500)
 			throw new IllegalArgumentException("Width is out of correct range");
 		
-		float length = getLength(args[3]);
+		float length = getLength(args[2]);
 		if (length <= 0 || length > 500)
 			throw new IllegalArgumentException("Length is out of correct range");
 		
-		float height = getLength(args[3]);
+		float height = getLength(args[5]);
 		if (height <= 0 || height > 500)
 			throw new IllegalArgumentException("Height is out of correct range");
+		
+		boolean validPostalCode = isPostalCode(args[0]) && isPostalCode(args[1]);
+		if (!validPostalCode)
+			throw new IllegalArgumentException("Postal code is in a wrong format");
+		
+		boolean validProductType = isValidProductType(args[6]);
+		if (!validProductType)
+			throw new IllegalArgumentException("Product Type must be regular, xpress or priority");
+	}
+	
+	public static boolean isValidProductType(String s) {
+		if (s.toLowerCase().equals("regular"))
+			return true;
+		if (s.toLowerCase().equals("xpress"))
+			return true;
+		if (s.toLowerCase().equals("priority"))
+			return true;
+		return false;
+	}
+
+	public static boolean isPostalCode(String s) {
+		Pattern r = Pattern.compile("[a-zA-Z]\\d[a-zA-Z] ?\\d[a-zA-Z]\\d");
+	    if (r.matcher(s).find( ))
+	    		return true;
+	    	return false;
 	}
 	
 	public static float getHeight(String s) {
@@ -74,6 +102,7 @@ public class Calculator {
 	public static float getWeight(String s) {
 		return Float.parseFloat(s);
 	}
+
 
 }
 
