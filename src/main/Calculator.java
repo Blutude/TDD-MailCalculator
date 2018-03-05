@@ -6,7 +6,10 @@ import java.util.regex.Matcher;
 public class Calculator {
 	
 	public static void main(String args[]) {
-		if (validationIntegerParametersType(args))
+		if (validateNumberOfArgs(args) == -1)
+			throw new IllegalArgumentException("There should be 7 command line arguments");
+		
+		if (validateFloatParametersType(args))
 			throw new IllegalArgumentException("Parameters 3 to 6 must be numbers");
 		
 		float weight = getWeight(args[4]);
@@ -21,7 +24,7 @@ public class Calculator {
 		if (length <= 0 || length > 500)
 			throw new IllegalArgumentException("Length is out of correct range");
 		
-		float height = getLength(args[5]);
+		float height = getHeight(args[5]);
 		if (height <= 0 || height > 500)
 			throw new IllegalArgumentException("Height is out of correct range");
 		
@@ -72,7 +75,7 @@ public class Calculator {
 		}
 	}
 	
-	public static boolean validationIntegerParametersType(String[] args) {
+	public static boolean validateFloatParametersType(String[] args) {
 		float i = 0;
 		
 		try {
@@ -102,8 +105,6 @@ public class Calculator {
 	public static float getWeight(String s) {
 		return Float.parseFloat(s);
 	}
-
-
 }
 
 

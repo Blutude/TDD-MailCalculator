@@ -25,8 +25,8 @@ class TestCalculator {
 	}
 
 	@Test
-	void testIntegerParametersType() {
-		boolean correctTypes = Calculator.validationIntegerParametersType(validTestArgs);
+	void testFloatParametersType() {
+		boolean correctTypes = Calculator.validateFloatParametersType(validTestArgs);
 		Assertions.assertTrue(correctTypes);
 	}
 	
@@ -75,9 +75,9 @@ class TestCalculator {
 	}
 	
 	@Test
-	void testInvalidIntegerParametersType() {
+	void testInvalidFloatParametersType() {
 		invalidTestArgs = new String[] {"h3j0a9", "H3J 0A1", "14s0", "300", "1W0", "380", "xpress"};
-		boolean correctTypes = Calculator.validationIntegerParametersType(invalidTestArgs);
+		boolean correctTypes = Calculator.validateFloatParametersType(invalidTestArgs);
 		Assertions.assertFalse(correctTypes);
 	}
 	
