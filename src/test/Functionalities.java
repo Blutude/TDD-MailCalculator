@@ -19,7 +19,8 @@ public class Functionalities {
 			largeExpress,
 			smallPriority,
 			mediumPriority,
-			largePriority;
+			largePriority,
+			outOfBound;
 	
 	@BeforeEach
 	void setUp() {
@@ -32,6 +33,7 @@ public class Functionalities {
 		smallPriority = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "40", "priority"};
 		mediumPriority = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "380", "priority"};
 		largePriority = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "460", "priority"};
+		outOfBound = new String[] {"h3j0a9", "h3j0a1", "140", "300", "10", "900", "regular"};
 	}
 	
 	@Test
@@ -88,5 +90,27 @@ public class Functionalities {
 		double rate = Calculator.createRate(Float.parseFloat(largePriority[5]), largePriority[6]);
 		Assertions.assertEquals(3.5, rate);
 	}
+	
+	@Test
+	void testOutOfBoundParcel() {
+		double rate = Calculator.createRate(Float.parseFloat(outOfBound[5]), outOfBound[6]);
+		Assertions.assertEquals(0.0, rate);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
