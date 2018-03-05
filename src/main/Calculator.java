@@ -105,6 +105,33 @@ public class Calculator {
 	public static float getWeight(String s) {
 		return Float.parseFloat(s);
 	}
+	
+	public static double createRate(float weight, String processType) {
+		if (weight < 100 && processType.equals("regular")) {
+			return 1.8;
+		} else if ((weight >= 100 && weight <= 400) && processType.equals("regular")) {
+			return 2.0;
+		}
+		 else if ((weight > 400 && weight <= 500) && processType.equals("regular")) {
+			return 2.2;
+		} else if (weight < 100 && processType.equals("express")) {
+			return 2.0;
+		} else if ((weight >= 100 && weight <= 400) && processType.equals("express")) {
+			return 2.5;
+		}
+		 else if ((weight > 400 && weight <= 500) && processType.equals("express")) {
+			return 2.8;
+		} else if (weight < 100 && processType.equals("priority")) {
+			return 2.5;
+		} else if ((weight >= 100 && weight <= 400) && processType.equals("priority")) {
+			return 3.0;
+		}
+		 else if ((weight > 400 && weight <= 500) && processType.equals("priority")) {
+			return 3.5;
+		}
+		
+		return 0;
+	}
 }
 
 
