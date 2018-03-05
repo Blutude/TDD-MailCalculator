@@ -35,6 +35,10 @@ public class Calculator {
 		boolean validProductType = isValidProductType(args[6]);
 		if (!validProductType)
 			throw new IllegalArgumentException("Product Type must be regular, xpress or priority");
+		
+		double rate = createRate(Float.parseFloat(args[4]), args[6]);
+		if (rate == 0)
+			throw new IllegalArgumentException("No matched rate for given weight and process type");
 	}
 	
 	public static boolean isValidProductType(String s) {
